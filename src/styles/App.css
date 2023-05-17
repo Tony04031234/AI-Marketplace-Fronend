@@ -85,6 +85,18 @@
   font-size: 10px;
 }
 
+/* Modify the .cleaned-text-output class */
+.cleaned-text-output {
+  height: calc(100vh);
+  /* Adjust the height to 100vh minus the height of your header or other elements */
+  overflow-y: auto;
+  /* Enables vertical scrolling if the content exceeds max-height */
+  padding: 10px;
+  border: 1px solid #ccc;
+  /* Optional: Add a border around the text container */
+}
 
-
-
+.hide-header {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
