@@ -1,4 +1,4 @@
-# Presentation Generator
+# AI Marketplace
 
 Presentation Generator is an open-source software that automates the creation of presentations, code, summaries, and image uploads. The project consists of a front-end application built with React, and a back-end API built with Node.js. This project is made possible by the generous contributions of open-source developers around the world.
 
