@@ -1,24 +1,35 @@
 function PresentationPreview({ presentationData }) {
-  const formatSlideContent = (content) => content
-    .split('. ')
-    .map((sentence, index) => (
-      <p key={index}>
-        {sentence.charAt(0).toUpperCase() + sentence.slice(1)}
-      </p>
-    ));
+  const formatSlideContent = (content) => {
+    if (!content) {
+      return [];
+    }
+    return content
+      .split('. ')
+      .map((sentence) => (
+        <p>
+          {sentence.charAt(0).toUpperCase() + sentence.slice(1)}
+        </p>
+      ));
+  };
 
   return (
     <div className="presentation-preview">
-      {Object.entries(presentationData.slides).map(([key, slide], index) => (
-        <div className="slide-card" key={index}>
-          <img
-            src={presentationData.header_image}
-            alt={`Header for ${slide.title}`}
-          />
-          <h2 className="slide-title">{slide.title}</h2>
-          {formatSlideContent(slide.content)}
-        </div>
-      ))}
+      {presentationData.slides.map((slide, index) => {
+        if (!slide || !slide.title || !slide.content) {
+          return null;
+        }
+
+        return (
+          <div className="slide-card" key={index}>
+            <img
+              src={presentationData.header_image}
+              alt={`Header for ${slide.title}`}
+            />
+            <h2 className="slide-title">{slide.title}</h2>
+            {formatSlideContent(slide.content)}
+          </div>
+        );
+      })}
     </div>
   );
 }
